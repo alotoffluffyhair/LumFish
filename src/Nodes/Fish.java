@@ -28,7 +28,7 @@ public class Fish extends MethodProvider implements Node  {
 	public void execute() {
 		System.out.println("Fish");
 		if(!ctx.npcs.select().id(329).within(15).isEmpty() && local.getAnimation() == -1){
-			for (final Npc spot : ctx.npcs.nearest()){
+			for (final Npc spot : ctx.npcs.nearest().first()){
 				if (spot.isOnScreen()){
 					spot.interact("Lure");
 					sleep(Random.nextInt(700,1200));
