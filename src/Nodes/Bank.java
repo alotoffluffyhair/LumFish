@@ -45,12 +45,11 @@ public class Bank extends MethodProvider implements Node {
 				bankSuccess1 = true;
 				}
 				if (ctx.bank.deposit(331, Amount.ALL)){
-					ctx.bank.close();
 					bankSuccess2 = true;
 					sleep(Random.nextInt(50, 100));
-				}
+				}	
 				
-			}	
+			}ctx.bank.close();
 		}
 	}
 }
