@@ -38,31 +38,29 @@ public class LumFisher extends PollingScript implements PaintListener, MessageLi
     private final Queue<Node> cleanUpNodes = new ConcurrentLinkedQueue<>();
     Antiban antiban = new Antiban(ctx);
     
-    public LumFisher(){	
-    		getExecQueue(State.START).offer(new Runnable() {
 
-                @Override
-                public void run() {
+    public void start() {
                 	            	
-    				final Node fishing = new Fish(ctx);
-    				final Node toFishing = new WalkFish(ctx);             		        		        		        		        		        	
-    				final Node bank = new Bank(ctx);
-    				final Node toBank = new WalkBank(ctx);
-    				final Node dropper = new Dropper(ctx);
+    	final Node fishing = new Fish(ctx);
+    	final Node toFishing = new WalkFish(ctx);             		        		        		        		        		        	
+    	final Node bank = new Bank(ctx);
+    	final Node toBank = new WalkBank(ctx);
+    	final Node dropper = new Dropper(ctx);
             		
-            		fishNodes.addAll(Arrays.asList(fishing, toFishing));
-            		bankNodes.addAll(Arrays.asList(bank, toBank));
-            		cleanUpNodes.addAll(Arrays.asList(dropper));
+        fishNodes.addAll(Arrays.asList(fishing, toFishing));
+        bankNodes.addAll(Arrays.asList(bank, toBank));
+        cleanUpNodes.addAll(Arrays.asList(dropper));
             		
-            		PriceWrapper lookUp = new PriceWrapper();
-            		featherV = lookUp.getPrice(314);
-            		salmonV = lookUp.getPrice(331);
-            		troutV = lookUp.getPrice(335);
-            		startExp = ctx.skills.getExperience(Skills.FISHING);
+        PriceWrapper lookUp = new PriceWrapper();
+        featherV = lookUp.getPrice(314);
+        salmonV = lookUp.getPrice(331);
+        troutV = lookUp.getPrice(335);
+        startExp = ctx.skills.getExperience(Skills.FISHING);
+    }
             		
-                }
-            });		
-    	}	
+                
+   	
+    	
 
 	@Override
 	public int poll() {	
