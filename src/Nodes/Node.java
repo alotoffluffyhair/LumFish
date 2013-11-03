@@ -1,5 +1,5 @@
 package Nodes;
-public interface Node {
+abstract public interface Node {
 	
 	boolean activate();
 	void execute();

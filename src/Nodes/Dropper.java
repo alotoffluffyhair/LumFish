@@ -1,7 +1,5 @@
 package Nodes;
 
-import java.util.Arrays;
-
 import org.powerbot.script.lang.Filter;
 import org.powerbot.script.methods.MethodContext;
 import org.powerbot.script.methods.MethodProvider;
@@ -31,15 +29,16 @@ public class Dropper extends MethodProvider implements Node{
 	@Override
 	public boolean activate() {
 		if (local.getAnimation() == -1){
-		for (Item i : ctx.backpack.select().select(itemFilter)) {
-			return true;
-		}return false;
-		}return false;
+			for (Item i : ctx.backpack.select().select(itemFilter)) {
+				return true;
+			}
+		}
+		return false;
 	}  
 	
 	Filter<Item> itemFilter = new Filter<Item>(){
-        @Override
-        public boolean accept(Item item) {
+		@Override
+		public boolean accept(Item item) {
             for (int i : aryItems) {
                 if (item.getId() == i) {
                     return false;

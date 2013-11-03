@@ -10,6 +10,14 @@ import java.util.List;
 
 import org.powerbot.script.wrappers.Item;
 
+/*
+ * All credits to Coma
+ * for this class
+ * 
+ * 
+ */
+
+
 public class PriceWrapper {
     private HashMap<Integer, Integer> priceMap = new HashMap<>();
 
