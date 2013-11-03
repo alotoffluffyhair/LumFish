@@ -21,7 +21,7 @@ public class Bank extends MethodProvider implements Node {
 
 	@Override
 	public boolean activate() {
-		return bank.contains(local);
+		return bank.contains(local) && !ctx.bank.isOpen();
 	}
 
 	@Override
